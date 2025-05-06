@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">AplicacionFinal</string>
-    <string name="pokemon_image">Pokemon Image</string>
-    <string name="pokemon_image_detail">Pokemon Detail Image</string>
-    <string name="no_hay_pok_mon_para_mostrar">No hay Pokémon para mostrar</string>
-    <string name="search">Ej: Ditto</string>
-</resources>
