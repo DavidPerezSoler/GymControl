@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Exercises Management</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Exercises</h1>
+  <ul id="exercisesList"></ul>
+  <div id="error"></div>
+
+  <h2>New Exercise</h2>
+  <form id="form">
+    <input name="name" placeholder="Name" required />
+    <input name="force" placeholder="Force" required />
+    <input name="level" placeholder="Level" required />
+    <input name="mechanic" placeholder="Mechanic" required />
+    <input name="equipment" placeholder="Equipment" required />
+    <input name="category" placeholder="Category" required />
+    <input name="primaryMuscles" placeholder="Primary Muscles (comma-separated)" />
+    <input name="secondaryMuscles" placeholder="Secondary Muscles (comma-separated)" />
+    <textarea name="instructions" placeholder="Instructions (one per line)" required></textarea>
+    <button type="submit">Create</button>
+  </form>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
