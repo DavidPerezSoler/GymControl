@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Ejercicios del Día – GymControl</title>
+  <link rel="stylesheet" href="./styles/dayDetail.css" />
+</head>
+
+<body>
+
+  </style>
+  <div class="day-detail-container">
+    <header class="calendar__custom-header"
+      style="display: flex; justify-content: space-between; align-items: center; background: #212121; color: white; padding: 1rem;">
+      <button onclick="window.close()"
+        style="background: #413a3a; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 1rem; cursor: pointer;">Salir</button>
+    </header>
+
+    <!-- Cabecera -->
+    <header class="day-detail-header">
+      <h2 id="day-title">Ejercicios para —</h2>
+      <div class="day-filters">
+        <input type="search" id="search-input" placeholder="Buscar ejercicio…" />
+        <select id="filter-muscle">
+          <option value="">Todos músculos</option>
+          <option value="chest">Pecho</option>
+          <option value="biceps">biceps</option>
+          <option value="adductors">adductors</option>
+        </select>
+        <select id="filter-level">
+          <option value="">Todos niveles</option>
+          <option value="beginner">Principiante</option>
+          <option value="intermediate">Intermedio</option>
+          <option value="advanced">Avanzado</option>
+        </select>
+      </div>
+    </header>
+
+    <!-- Paneles -->
+    <div class="day-detail-panels">
+      <!-- Asignados -->
+      <section class="assigned-panel">
+        <h3>Asignados</h3>
+        <ul id="assigned-list" class="assigned-list"></ul>
+      </section>
+      <!-- Disponibles -->
+      <section class="available-panel">
+        <h3>Disponibles</h3>
+        <div class="available-controls">
+          <button id="add-exercise-api-btn" class="btn control-btn">
+            Nuevo ejercicio
+          </button>
+        </div>
+        <ul id="available-list" class="exercise-list"></ul>
+      </section>
+    </div>
+  </div>
+
+  <!-- Modal nº de sets (ya no se usa para editar sets) -->
+  <div id="sets-modal" class="modal hidden"></div>
+
+  <!-- Modal editar sets + reps + peso -->
+  <div id="edit-sets-modal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Editar series</h3>
+      <ul id="edit-sets-list" class="edit-sets-list"></ul>
+      <div class="modal-buttons">
+        <button id="edit-sets-cancel">Cancelar</button>
+        <button id="edit-sets-save">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal detalle ejercicio -->
+  <div id="exercise-modal" class="modal hidden">
+    <div class="modal-content exercise-form">
+      <h3>Detalle de ejercicio</h3>
+      <label>Nombre:</label>
+      <input type="text" id="ex-name" />
+      <label>Force:</label>
+      <input type="text" id="ex-force" />
+      <label>Nivel:</label>
+      <select id="ex-level">
+        <option>beginner</option>
+        <option>intermediate</option>
+        <option>advanced</option>
+      </select>
+      <label>Mecánica:</label>
+      <input type="text" id="ex-mechanic" />
+      <label>Equipo:</label>
+      <input type="text" id="ex-equipment" />
+      <label>Músculos primarios (comma):</label>
+      <input type="text" id="ex-primary" />
+      <label>Músculos secundarios (comma):</label>
+      <input type="text" id="ex-secondary" />
+      <label>Instrucciones (line-by-line):</label>
+      <textarea id="ex-instructions" rows="4"></textarea>
+      <div class="modal-buttons">
+        <button id="ex-cancel">Cancelar</button>
+        <button id="ex-save">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/bundles/dayDetailBundle.js"></script>
+</body>
+
+</html>

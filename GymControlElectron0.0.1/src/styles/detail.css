@@ -1,0 +1,26 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 1rem;
+  background: #fff;
+  color: #000;
+}
+.detail-container {
+  max-width: 600px;
+  margin: auto;
+}
+.detail-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.detail-header h1 {
+  font-size: 1.5rem;
+  color: #FFC107; /* amarillo marca */
+}
+.detail-desc {
+  font-size: 1rem;
+  line-height: 1.4;
+  margin-top: 1rem;
+}

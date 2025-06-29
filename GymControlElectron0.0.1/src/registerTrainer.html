@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Registrar Entrenador</title>
+  <link rel="stylesheet" href="./styles/login.css" />
+</head>
+<body>
+  <button class="back-button" onclick="window.close()">← Volver</button>
+<style>
+  .back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: #212121;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background 0.3s ease;
+  }
+
+  .back-button:hover {
+    background: #000;
+  }
+</style>
+  <div class="login-container">
+    <h1>Nuevo Entrenador</h1>
+    <form id="reg-form" class="login-form">
+      <input type="email" id="new-email" placeholder="Correo" required />
+      <input type="password" id="new-password" placeholder="Contraseña" required />
+      <input type="text" id="new-name" placeholder="Nombre completo" required />
+      <button type="submit" class="btn">Crear Entrenador</button>
+    </form>
+    <p id="reg-error" class="error-msg"></p>
+  </div>
+  <script type="module" src="./js/bundles/registerTrainerBundle.js"></script>
+</body>
+</html>

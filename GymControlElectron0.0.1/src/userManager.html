@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>User Manager – GymControl</title>
+  <link rel="stylesheet" href="./styles/userManager.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #FFC107;  /* Amarillo principal */
+      --dark: #212121;     /* Negro */
+      --light: #FFFFFF;    /* Blanco */
+      --gray: #424242;     /* Gris oscuro */
+      --light-gray: #f5f5f5;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+      background-color: var(--light-gray);
+    }
+
+    .um-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      background: var(--light);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .um-header {
+      background: linear-gradient(135deg, var(--dark) 0%, #000000 100%);
+      color: var(--primary);
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .um-header h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .um-header h1 i {
+      color: var(--primary);
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--light);
+      font-weight: 500;
+    }
+
+    .user-info img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid var(--primary);
+      object-fit: cover;
+    }
+
+    .um-main {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .um-main {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .um-form, .um-list {
+      background: var(--light);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--primary);
+      color: var(--dark);
+      font-size: 1.4rem;
+    }
+
+    .section-title i {
+      color: var(--primary);
+    }
+
+    .um-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .input-group label {
+      color: var(--gray);
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    .um-form input {
+      padding: 0.8rem 1rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .um-form input:focus {
+      border-color: var(--primary);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.2);
+    }
+
+    .btn {
+      padding: 0.9rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--dark);
+    }
+
+    .btn-primary:hover {
+      background: #ffb300;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-secondary {
+      background: var(--dark);
+      color: var(--light);
+    }
+
+    .btn-secondary:hover {
+      background: #000;
+      transform: translateY(-2px);
+    }
+
+    .btn-danger {
+      background: #e53935;
+      color: var(--light);
+    }
+
+    .btn-danger:hover {
+      background: #c62828;
+      transform: translateY(-2px);
+    }
+
+    .um-list-content {
+      max-height: 60vh;
+      overflow-y: auto;
+      padding-right: 8px;
+    }
+
+    .um-list-content::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .um-list-content::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+
+    .um-list-content::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 10px;
+    }
+
+    .user-card {
+      background: var(--light);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      border-left: 4px solid var(--primary);
+      transition: var(--transition);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .user-card:hover {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .user-info-container {
+      flex: 1;
+    }
+
+    .user-name {
+      font-weight: 600;
+      color: var(--dark);
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+
+    .user-email {
+      color: var(--gray);
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .user-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .action-btn {
+      padding: 0.6rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .stats-container {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #eee;
+    }
+
+    .stat-card {
+      flex: 1;
+      background: var(--light);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .stat-value {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 0.5rem 0;
+    }
+
+    .stat-label {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 2rem;
+      color: var(--gray);
+    }
+
+    .empty-state i {
+      font-size: 3rem;
+      color: #e0e0e0;
+      margin-bottom: 1rem;
+    }
+
+    .empty-state h3 {
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+
+    .notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      background: var(--dark);
+      color: var(--light);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 1000;
+      transform: translateX(120%);
+      transition: transform 0.4s ease;
+    }
+
+    .notification.show {
+      transform: translateX(0);
+    }
+
+    .notification i {
+      color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+    <div class="um-container">
+      <button class="back-button" onclick="window.close()">← Volver</button>
+<style>
+  .back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: #212121;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background 0.3s ease;
+  }
+
+  .back-button:hover {
+    background: #000;
+  }
+</style>
+    <header class="um-header">
+      <h1><i class="fas fa-dumbbell"></i> Gestión de Clientes - GymControl</h1>
+      <div class="user-info">
+      </div>
+    </header>
+    
+    <main class="um-main">
+      <section class="um-form">
+        <h2 class="section-title"><i class="fas fa-user-plus"></i> Crear Nuevo Cliente</h2>
+        <form id="register-form">
+          <div class="input-group">
+            <label for="new-email">Correo Electrónico</label>
+            <input type="email" id="new-email" placeholder="correo@ejemplo.com" required>
+          </div>
+          
+          <div class="input-group">
+            <label for="new-password">Contraseña</label>
+            <input type="password" id="new-password" placeholder="••••••••" required>
+          </div>
+          
+          <div class="input-group">
+            <label for="new-name">Nombre Completo</label>
+            <input type="text" id="new-name" placeholder="Nombre y apellidos" required>
+          </div>
+          
+          <button type="submit" class="btn btn-primary">
+            <i class="fas fa-user-check"></i> Añadir Cliente
+          </button>
+        </form>
+      </section>
+      
+      <section class="um-list">
+        <h2 class="section-title"><i class="fas fa-users"></i> Clientes sin Asignar</h2>
+        <div class="um-list-content" id="unassigned-users-list">
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="notification" id="notification">
+    <i class="fas fa-check-circle"></i>
+    <span>Cliente asignado correctamente</span>
+  </div>
+  <script type="module" src="./js/bundles/userManagerBundle.js"></script>
+</body>
+</html>

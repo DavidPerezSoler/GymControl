@@ -1,0 +1,49 @@
+/* styles/exercises.css */
+
+.exercise-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.exercise-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+  transition: background 0.2s;
+}
+
+.exercise-item:hover {
+  background: #f9f9f9;
+}
+
+.exercise-item .name {
+  font-size: 1rem;
+  color: #333;
+}
+
+.exercise-item .actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.exercise-item .actions button {
+  padding: 0.4rem 0.6rem;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.exercise-item .actions button.detail {
+  background: #FFC107;     /* amarillo de tu marca */
+  color: #000;
+}
+
+.exercise-item .actions button.unassign {
+  background: #000;        /* negro de tu marca */
+  color: #fff;
+}

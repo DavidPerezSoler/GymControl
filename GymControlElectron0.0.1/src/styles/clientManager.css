@@ -1,0 +1,186 @@
+/* Reset y tipografía */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #ffffff;
+  color: #000000;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #000000;           /* negro */
+  color: #ffffff;                /* blanco */
+  padding: 1rem 2rem;
+}
+.logo {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #FFD700;                /* amarillo */
+}
+.trainer-name {
+  font-size: 1rem;
+  color: #ffffff;                /* blanco */
+}
+
+/* Main y sección de clientes */
+.main {
+  padding: 2rem;
+}
+.clients-section {
+  background: #ffffff;           /* blanco */
+  border: 2px solid #000000;     /* negro */
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  padding: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Cabecera de lista */
+.clients-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.clients-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #000000;                /* negro */
+}
+/* Botón Añadir usuarios */
+.add-user-btn {
+  background: #FFD700;            /* amarillo */
+  color: #000000;                 /* negro */
+  border: 2px solid #000000;      /* negro */
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.add-user-btn:hover {
+  background: #000000;            /* negro */
+  color: #FFD700;                 /* amarillo */
+}
+
+/* Lista de clientes */
+.client-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.client-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  transition: background 0.2s;
+}
+.client-item:hover {
+  background: rgba(255,215,0,0.1); /* suave amarillo */
+}
+.client-info {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.client-info strong {
+  font-size: 1rem;
+  color: #000000;                /* negro */
+}
+.client-info .email {
+  color: #555555;
+  font-size: 0.9rem;
+}
+
+/* Botones de acción */
+.client-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+.btn {
+  background: none;
+  border: 2px solid #000000;       /* negro */
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #000000;                  /* negro */
+  transition: background 0.2s, color 0.2s;
+}
+.btn-calendar i,
+.btn-remove i {
+  vertical-align: middle;
+}
+.btn-calendar:hover {
+  background: #FFD700;             /* amarillo */
+  color: #000000;                  /* negro */
+}
+.btn-remove:hover {
+  background: #FFD700;             /* amarillo */
+  color: #000000;                  /* negro */
+}
+
+/* Mensaje cuando no hay clientes */
+.no-clients {
+  text-align: center;
+  color: #666666;
+  padding: 1rem;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .client-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+
+body, html { margin:0; padding:0; font-family:sans-serif; background:#f5f5f5; }
+.header {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:1rem; background:#212121; color:#FFC107;
+}
+.user-dropdown { position:relative; }
+.dropdown-btn {
+  background:transparent; border:none; color:#FFC107;
+  font-size:1rem; cursor:pointer;
+}
+.dropdown-menu {
+  position:absolute; top:100%; right:0;
+  background:#fff; color:#000;
+  border:1px solid #ddd; border-radius:4px;
+  list-style:none; margin:0; padding:0.5rem 0;
+  box-shadow:0 2px 6px rgba(0,0,0,0.2);
+}
+.dropdown-menu.hidden { display:none; }
+.dropdown-menu li { padding:0.25rem 1rem; }
+.dropdown-menu li button {
+  background:none; border:none; width:100%; text-align:left;
+  font-size:0.95rem; cursor:pointer;
+}
+.main { padding:1rem; }
+.clients-header {
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom:0.5rem;
+}
+.client-list {
+  list-style:none; margin:0; padding:0;
+  max-height:70vh; overflow-y:auto;
+}
+.client-list li {
+  padding:0.75rem; border-bottom:1px solid #eee;
+  cursor:pointer;
+}
+.client-list li:hover { background:#fafafa; }

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise Detail</title>
+  <link rel="stylesheet" href="./styles/detail.css">
+</head>
+<body>
+  <button class="back-button" onclick="window.close()">← Volver</button>
+<style>
+  .back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: #212121;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background 0.3s ease;
+  }
+
+  .back-button:hover {
+    background: #000;
+  }
+</style>
+  <h1 id="detailName"></h1>
+  <p><strong>Category:</strong> <span id="detailCategory"></span></p>
+  <p><strong>Force:</strong> <span id="detailForce"></span></p>
+  <p><strong>Level:</strong> <span id="detailLevel"></span></p>
+  <p><strong>Mechanic:</strong> <span id="detailMechanic"></span></p>
+  <p><strong>Equipment:</strong> <span id="detailEquipment"></span></p>
+  <p><strong>Primary Muscles:</strong> <span id="detailPrimary"></span></p>
+  <p><strong>Secondary Muscles:</strong> <span id="detailSecondary"></span></p>
+  <h2>Instructions</h2>
+  <ol id="detailInstructions"></ol>
+
+  <script src="detailRenderer.js"></script>
+</body>
+</html>

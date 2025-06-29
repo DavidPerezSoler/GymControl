@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Manager – GymControl</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/clientManager.css">
+</head>
+<body>
+</style>
+  <header class="header">
+    <h1 class="logo">GymControl</h1>
+    <div class="user-dropdown">
+      <button id="user-dropdown-btn" class="dropdown-btn">
+        <span id="trainer-email">Entrenador</span> ▾
+      </button>
+      <ul id="user-menu" class="dropdown-menu hidden">
+        <li><button id="logout-btn">Cerrar sesión</button></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="clients-section">
+      <div class="clients-header">
+        <h2>Lista de usuarios</h2>
+        <button id="open-user-manager-btn" class="btn add-user-btn">
+          <i class="ri-user-add-line"></i> Añadir usuarios
+        </button>
+      </div>
+      <ul id="client-list" class="client-list"></ul>
+    </section>
+  </main>
+
+  <script type="module" src="./js/bundles/clientManagerBundle.js"></script>
+</body>
+</html>

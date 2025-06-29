@@ -1,0 +1,61 @@
+<!-- src/calendar.html -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Calendario – GymControl</title>
+  <link rel="stylesheet" href="./styles/calendar.css">
+</head>
+
+<body>
+
+  <div class="calendar-container">
+    
+    <header class="calendar__header">
+      <button class="calendar__button calendar__button--previous" aria-label="Mes anterior">
+        <i class="ri-arrow-left-s-line"></i>
+      </button>
+      <h3 id="calendar-date" class="calendar__date"></h3>
+      <button class="calendar__button calendar__button--next" aria-label="Mes siguiente">
+        <i class="ri-arrow-right-s-line"></i>
+      </button>
+    </header>
+    
+    <section class="calendar__weekdays">
+      <div class="calendar__weekday"><abbr>Lun</abbr></div>
+      <div class="calendar__weekday"><abbr>Mar</abbr></div>
+      <div class="calendar__weekday"><abbr>Mié</abbr></div>
+      <div class="calendar__weekday"><abbr>Jue</abbr></div>
+      <div class="calendar__weekday"><abbr>Vie</abbr></div>
+      <div class="calendar__weekday"><abbr>Sáb</abbr></div>
+      <div class="calendar__weekday"><abbr>Dom</abbr></div>
+    </section>
+    <ol class="calendar__days"></ol>
+  </div>
+
+  <!-- 1) Cargamos Firebase desde CDN y firebaseConfig desde nuestro src/ -->
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js';
+    import {
+      getFirestore,
+      doc,
+      getDoc
+    } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js';
+    import { firebaseConfig } from './firebaseConfig.js';
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Exponer funciones para calendarRenderer.js
+    window.fs = { db, doc, getDoc };
+  </script>
+
+  <!-- 2) Ahora sí tus módulos locales, siempre con rutas relativas -->
+  <script type="module" src="./modules/selectores.js"></script>
+  <script type="module" src="./modules/components/Calendar.js"></script>
+  <script type="module" src="./js/calendarRenderer.js"></script>
+</body>
+
+</html>
